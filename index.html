@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Harga Bahan Baku</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>💰 Daftar Harga Bahan Baku Cetak</h1>
+
+        <input type="text" id="searchInput" placeholder="Cari Nama Item..." onkeyup="searchTable()">
+
+        <hr>
+
+        <div class="add-section">
+            <h2>➕ Tambah Item Baru</h2>
+            <form id="addItemForm">
+                <input type="text" id="nama" placeholder="Nama Item" required>
+                <input type="text" id="kategori" placeholder="Kategori (cth: HVS, Stiker)" required>
+                <input type="number" id="harga" placeholder="Harga (Rupiah)" required>
+                <input type="text" id="keterangan" placeholder="Keterangan (cth: Per Plano)" class="keterangan-input">
+                <button type="submit">Tambah Data</button>
+            </form>
+        </div>
+
+        <hr>
+        
+        <h2>📦 Data Harga Item</h2>
+        <table id="priceTable">
+            <thead>
+                <tr>
+                    <th>Nama Item</th>
+                    <th>Kategori</th>
+                    <th>Harga (Rp)</th>
+                    <th>Keterangan</th> <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                </tbody>
+        </table>
+    </div>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>✏️ Edit Data Item</h2>
+            <form id="editItemForm">
+                <input type="hidden" id="editId"> 
+
+                <label for="editNama">Nama Item:</label>
+                <input type="text" id="editNama" required>
+
+                <label for="editKategori">Kategori:</label>
+                <input type="text" id="editKategori" required>
+
+                <label for="editHarga">Harga (Rp):</label>
+                <input type="number" id="editHarga" required>
+
+                <label for="editKeterangan">Keterangan:</label>
+                <input type="text" id="editKeterangan">
+
+                <button type="submit">Simpan Perubahan</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
